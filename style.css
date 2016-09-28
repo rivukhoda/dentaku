@@ -1,0 +1,7 @@
+.lock {
+    width: 43px;
+}
+
+div + div {
+    margin-top: 5px;
+}
