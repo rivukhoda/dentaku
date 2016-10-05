@@ -19,18 +19,17 @@ function CalculatorController() {
         else {
             vm.equation += value;
         }
-
-    }
+    };
 
     vm.clearAll = function () {
         vm.equation = "0";
         enteredFirstInput = false;
-    }
+    };
 
     vm.takeKeyboardInput = function (value) {
         var validInputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", ".", "(", ")"];
 
-        if (validInputs.indexOf(value.key) > -1){
+        if (validInputs.indexOf(value.key) > -1) {
             vm.append(value.key);
         }
         else if (value.key === "Enter") {
@@ -40,9 +39,9 @@ function CalculatorController() {
             vm.clearAll();
         }
         console.log(value);
-    }
+    };
 
     vm.calculate = function () {
-        console.log("result is 42");
-    }
+        vm.equation = "42";
+    };
 }
