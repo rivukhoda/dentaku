@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
@@ -17,25 +17,29 @@
     <script src="calculator.controller.js"></script>
 
 </head>
-<body ng-app="app">
+<body ng-controller="CalculatorController as calculator" ng-keypress="calculator.takeKeyboardInput($event)">
 
-<div class="container" ng-controller="CalculatorController as calculator">
+<div class="container">
     <div class="row">
         <h1 class="text-xs-center">Dentaku</h1>
         <p class="text-xs-center">A Simple Web-Based Calculator</p>
     </div>
     <div class="row">
-        <div class="card card-outline-secondary text-xs-right">
+        <div class="card card-outline-secondary text-xs-right col-xs-12">
             <div class="card-block">
                 <h4 class="card-text">{{ calculator.equation }}</h4>
             </div>
         </div>
     </div>
     <div class="row">
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('(')">(</button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append(')')">)</button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('%')">%</button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.clearAll()">AC</button>
+        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('(')"">(
+        </button>
+        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append(')')" ng-keypress="">)
+        </button>
+        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('%')" ng-keypress="">%
+        </button>
+        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.clearAll()" ng-keypress="">AC
+        </button>
     </div>
     <div class="row">
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('7')">7</button>

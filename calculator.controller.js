@@ -27,8 +27,22 @@ function CalculatorController() {
         enteredFirstInput = false;
     }
 
-    vm.calculate = function () {
+    vm.takeKeyboardInput = function (value) {
+        var validInputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", ".", "(", ")"];
 
+        if (validInputs.indexOf(value.key) > -1){
+            vm.append(value.key);
+        }
+        else if (value.key === "Enter") {
+            vm.calculate();
+        }
+        else if (value.key === "Backspace") {
+            vm.clearAll();
+        }
+        console.log(value);
     }
 
+    vm.calculate = function () {
+        console.log("result is 42");
+    }
 }
