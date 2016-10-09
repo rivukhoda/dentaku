@@ -26,7 +26,7 @@ function CalculatorController() {
         enteredFirstInput = false;
     };
 
-    vm.takeKeyboardInput = function (value) {
+    vm.handleKeyboardInput = function (value) {
         var validInputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", ".", "(", ")"];
 
         if (validInputs.indexOf(value.key) > -1) {
