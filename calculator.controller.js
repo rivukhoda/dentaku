@@ -16,6 +16,12 @@ function CalculatorController() {
         if (value === "+" || value === "-" || value === "/" || value === "*") {
             vm.equation += " " + value + " ";
         }
+        else if (value === "(") {
+            vm.equation += value + " ";
+        }
+        else if (value === ")") {
+            vm.equation += " " + value;
+        }
         else {
             vm.equation += value;
         }
@@ -27,7 +33,7 @@ function CalculatorController() {
     };
 
     vm.handleKeyboardInput = function (value) {
-        var validInputs = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", ".", "(", ")"];
+        var validInputs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", ".", "(", ")"];
 
         if (validInputs.indexOf(value.key) > -1) {
             vm.append(value.key);
@@ -48,7 +54,10 @@ function CalculatorController() {
         var operators = ["+", "-", "*", "/"];
 
         function hasHigherPrecedence(operator1, operator2) {
-            if (operator1 === "+" || operator1 === "-") {
+            if (operator2 === "(") {
+                return true;
+            }
+            else if (operator1 === "+" || operator1 === "-") {
                 return false;
             }
             else {
@@ -76,7 +85,7 @@ function CalculatorController() {
             var operand2 = parseFloat(stack1.pop());
             var operator = stack2.pop();
 
-            var result = math[operator](operand1, operand2);
+            var result = math[operator](operand2, operand1);
             stack1.push(result);
 
         }
