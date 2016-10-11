@@ -2,3 +2,21 @@
 
 > Web-based calculator
 
+Calculate simple arithmetic expressions on mobile or desktop. All you need is a browser and it's ready to go ! Implementation is based on Dijkistra's Shunting-Yard Algorithm.
+
+## Usage
+
+You can try the fully working live app at [http://rivukhoda.me/dentaku](http://rivukhoda.me/dentaku)
+
+## Features
+
+* Mobile-First 
+* Keyboard Input
+* Decimal values support
+* Add, Subtract, Divide, and Multiply
+* ~~Percentage~~
+
+## License
+
+This project is licensed under the terms of the MIT license.
+
