@@ -14,6 +14,7 @@ You can try the fully working live app at [http://rivukhoda.me/dentaku](http://r
 * Keyboard Input
 * Decimal values support
 * Add, Subtract, Divide, and Multiply
+* Parenthetical expressions
 * ~~Percentage~~
 
 ## License
