@@ -18,6 +18,7 @@ You can try the fully working live app at [http://rivukhoda.me/dentaku](http://r
 * ~~Percentage~~
 
 ## License
+>You can check out the full license [here](https://github.com/rivukhoda/dentaku/master/License.txt)
 
 This project is licensed under the terms of the MIT license.
 
