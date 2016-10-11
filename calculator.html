@@ -17,7 +17,7 @@
     <script src="calculator.controller.js"></script>
 
 </head>
-<body ng-controller="CalculatorController as calculator" ng-keypress="calculator.handleKeyboardInput($event)">
+<body ng-controller="CalculatorController as calculator" ng-keydown="calculator.handleKeyboardInput($event)">
 
 <div class="container">
     <div class="row">
