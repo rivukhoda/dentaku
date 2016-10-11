@@ -1,4 +1,4 @@
-![logo](Dentaku.png)
+![logo](logo.png)
 
 > Web-based calculator
 
