@@ -11,7 +11,7 @@ You can try the fully working live app at [http://rivukhoda.me/dentaku](http://r
 ## Features
 
 * Mobile-First 
-* Keyboard Input
+* Keyboard Input (Chrome, Firefox, ~~Safari~~, ~~IE~~)
 * Decimal values support
 * Add, Subtract, Divide, and Multiply
 * Parenthetical expressions
