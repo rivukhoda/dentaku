@@ -14,6 +14,18 @@ function CalculatorController() {
             enteredFirstInput = true;
         }
         if (value === "+" || value === "-" || value === "/" || value === "*") {
+            if (value === "-") {
+                var tokenizedEquation = vm.equation.split(" ");
+
+                if (tokenizedEquation.slice(-2)[0] === "(" && tokenizedEquation.slice(-1)[0] === " ") {
+                    vm.equation += value;
+                    return;
+                }
+                else if (tokenizedEquation.splice(-1)[0] === "") {
+                    vm.equation += value;
+                    return;
+                }
+            }
             vm.equation += " " + value + " ";
         }
         else if (value === "(") {
@@ -53,6 +65,15 @@ function CalculatorController() {
 
         var operators = ["+", "-", "*", "/"];
 
+        function isNumber(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function isOperator(n) {
+            return operators.indexOf(n) > -1
+
+        }
+
         function hasHigherPrecedence(operator1, operator2) {
             if (operator2 === "(") {
                 return true;
@@ -64,6 +85,16 @@ function CalculatorController() {
                 return (operator2 === "+" || operator2 === "-") ? true : false;
             }
         }
+
+        function process(stack1, stack2) {
+            var operand1 = parseFloat(stack1.pop());
+            var operand2 = parseFloat(stack1.pop());
+            var operator = stack2.pop();
+
+            var result = math[operator](operand2, operand1);
+            stack1.push(result);
+        }
+
 
         var math = {
             '+': function (a, b) {
@@ -80,29 +111,38 @@ function CalculatorController() {
             }
         };
 
-        function process(stack1, stack2) {
-            var operand1 = parseFloat(stack1.pop());
-            var operand2 = parseFloat(stack1.pop());
-            var operator = stack2.pop();
-
-            var result = math[operator](operand2, operand1);
-            stack1.push(result);
-
-        }
-
-        function isNumber(n) {
-            return !isNaN(parseFloat(n)) && isFinite(n);
-        }
-
-        function isOperator(n) {
-            return operators.indexOf(n) > -1
-
-        }
 
         var operandContainer = [];
         var operatorContainer = [];
 
-        tokenizedExpression.forEach(function (char) {
+        //tokenizedExpression.forEach(function (char) {
+        //    if (isNumber(char)) {
+        //        operandContainer.push(char);
+        //    }
+        //    else if (isOperator(char) && operatorContainer.length === 0) {
+        //        operatorContainer.push(char);
+        //    }
+        //    else if (isOperator(char) && hasHigherPrecedence(char, operatorContainer.slice(-1)[0])) {
+        //        operatorContainer.push(char);
+        //    }
+        //    else if (char === "(") {
+        //        operatorContainer.push(char);
+        //    }
+        //    else if (char === ")") {
+        //        while (operatorContainer.slice(-1)[0] !== "(") {
+        //            process(operandContainer, operatorContainer);
+        //        }
+        //        operatorContainer.pop();
+        //    }
+        //    else {
+        //        process(operandContainer, operatorContainer);
+        //        if (isOperator(char)) {
+        //            operatorContainer.push(char);
+        //        }
+        //    }
+        //});
+
+        function shuntingYard(char) {
             if (isNumber(char)) {
                 operandContainer.push(char);
             }
@@ -127,7 +167,19 @@ function CalculatorController() {
                     operatorContainer.push(char);
                 }
             }
-        });
+        }
+
+        for (var i = 0; i < tokenizedExpression.length; i++) {
+            try {
+                shuntingYard(tokenizedExpression[i]);
+            }
+            catch (e) {
+                console.log(e);
+                vm.equation = "Syntax ERROR";
+                break;
+            }
+
+        }
 
         while (operatorContainer.length !== 0) {
             process(operandContainer, operatorContainer);
@@ -135,7 +187,13 @@ function CalculatorController() {
 
         console.log(operandContainer);
         console.log(operatorContainer);
-        vm.equation = operandContainer[0];
+        enteredFirstInput = false;
+        if (isNaN(operandContainer[0])) {
+            vm.equation = "Syntax Error"
+        }
+        else if (!(vm.equation === "Syntax Error")) {
+            vm.equation = operandContainer[0];
+        }
 
     };
 }
