@@ -2,6 +2,7 @@
 
 >Web-based calculator
 
+
 Calculate simple arithmetic expressions on mobile or desktop. All you need is a browser and it's ready to go ! Implementation is based on Dijkstra's Shunting-Yard Algorithm.
 
 ## Usage
