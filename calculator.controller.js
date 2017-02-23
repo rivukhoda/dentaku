@@ -33,6 +33,9 @@ function CalculatorController() {
             vm.equation = "";
             enteredFirstInput = true;
         }
+        if (value === "?") {
+            value = Math.floor((Math.random() * 100) + 1);
+        }
         if (value === "+" || value === "-" || value === "/" || value === "*") {
             if (value === "-") {
                 var tokenizedEquation = vm.equation.split(" ");
