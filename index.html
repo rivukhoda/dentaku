@@ -17,7 +17,7 @@
     <script src="calculator.controller.js"></script>
 
 </head>
-<body ng-controller="CalculatorController as calculator" ng-keydown="calculator.handleKeyboardInput($event)">
+<body ng-controller="CalculatorController as calculator" ng-keydown="calculator.handleKeyboardInput($event)" ng-attr-id="{{calculator.hasDefaultTheme ? '' : 'soothing-background'}}">
 
 <div class="container">
     <div class="row">
@@ -25,45 +25,41 @@
         <p class="text-xs-center">A Simple Web-Based Calculator</p>
     </div>
     <div class="row">
-        <div class="card card-outline-secondary text-xs-right col-xs-12">
+        <div class="card card-outline-secondary text-xs-right col-xs-12" id="equation">
             <div class="card-block">
                 <h4 class="card-text">{{ calculator.equation }}</h4>
             </div>
         </div>
     </div>
     <div class="row">
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('(')">(
-        </button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append(')')">)
-        </button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('?')">?
-        </button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.clearAll()">AC
-        </button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.append('(')">(</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.append(')')">)</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.changeTheme()">&#9734</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.clearAll()">AC</button>
     </div>
     <div class="row">
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('7')">7</button>
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('8')">8</button>
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('9')">9</button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('/')">/</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.append('/')">/</button>
     </div>
     <div class="row">
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('4')">4</button>
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('5')">5</button>
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('6')">6</button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('*')">*</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.append('*')">*</button>
     </div>
     <div class="row">
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('1')">1</button>
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('2')">2</button>
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('3')">3</button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('-')">-</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.append('-')">-</button>
     </div>
     <div class="row">
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('0')">0</button>
         <button type="button" class="btn btn-secondary btn-lg col-xs-3" ng-click="calculator.append('.')">.</button>
-        <button type="button" class="btn btn-primary btn-lg col-xs-3" ng-click="calculator.calculate()">=</button>
-        <button type="button" class="btn btn-info btn-lg col-xs-3" ng-click="calculator.append('+')">+</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-warning btn-lg col-xs-3' " ng-click="calculator.calculate()">=</button>
+        <button type="button" ng-class="calculator.hasDefaultTheme ? 'btn btn-info btn-lg col-xs-3' : 'btn btn-success btn-lg col-xs-3' " ng-click="calculator.append('+')">+</button>
     </div>
 
 </div>

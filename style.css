@@ -2,6 +2,22 @@
     border-color: #cccccc
 }
 
+/* Alternate theme styles
+-------------------------------------------------- */
+.btn-success {
+    border-color: #cccccc
+}
+
+#soothing-background {
+    background: #F5F5DC
+}
+
+#equation {
+    background: white;
+}
+
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

@@ -5,6 +5,15 @@ angular
 function CalculatorController() {
 
     var vm = this;
+
+
+    vm.hasDefaultTheme = true;
+
+    vm.changeTheme = function() {
+        vm.hasDefaultTheme ? vm.hasDefaultTheme = false : vm.hasDefaultTheme = true;
+    };
+
+
     vm.equation = "0";
     var enteredFirstInput = false;
 
@@ -32,9 +41,6 @@ function CalculatorController() {
         if (!enteredFirstInput) {
             vm.equation = "";
             enteredFirstInput = true;
-        }
-        if (value === "?") {
-            value = Math.floor((Math.random() * 100) + 1);
         }
         if (value === "+" || value === "-" || value === "/" || value === "*") {
             if (value === "-") {
