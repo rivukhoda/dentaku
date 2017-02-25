@@ -29,7 +29,6 @@ function CalculatorController() {
         else if (value.key === "Backspace") {
             vm.clearAll();
         }
-        console.log(value);
     };
 
     vm.clearAll = function () {
