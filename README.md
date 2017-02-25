@@ -16,8 +16,7 @@ You can try the fully working live app at [http://rivukhoda.me/dentaku](http://r
 * Decimal values support
 * Add, Subtract, Divide, and Multiply
 * Parenthetical expressions
-* Alternate themes: Spark Blue & Mellow Jello
-* ~~Percentage~~
+* Alternate themes: Spark Blue & Mellow Beige
 
 ## License
 >You can check out the full license [here](https://github.com/rivukhoda/dentaku/blob/master/License.txt)
