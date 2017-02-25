@@ -172,6 +172,7 @@ function CalculatorController() {
         }
         else if (!(vm.equation === "Syntax Error")) {
             vm.equation = operandContainer[0];
+            vm.append(operandContainer[0]);
         }
 
     };
