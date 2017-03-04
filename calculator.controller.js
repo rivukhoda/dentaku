@@ -9,7 +9,7 @@ function CalculatorController() {
 
     vm.hasDefaultTheme = true;
 
-    vm.changeTheme = function() {
+    vm.changeTheme = function () {
         vm.hasDefaultTheme ? vm.hasDefaultTheme = false : vm.hasDefaultTheme = true;
     };
 
