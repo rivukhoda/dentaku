@@ -3,7 +3,6 @@
 >Web-based calculator
 
 [![Build Status](https://travis-ci.org/rivukhoda/dentaku.svg?branch=master)](https://travis-ci.org/rivukhoda/dentaku)
-[![HitCount](https://hitt.herokuapp.com/{rivukhoda}/{dentaku}.svg)](https://github.com/{rivukhoda}/{dentaku})
 
 Calculate simple arithmetic expressions on mobile or desktop. All you need is a browser and it's ready to go! Implementation is based on Dijkstra's Shunting-Yard Algorithm.
 
