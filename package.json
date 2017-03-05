@@ -4,8 +4,10 @@
   "devDependencies": {
     "angular": "^1.6.2",
     "angular-mocks": "^1.6.2",
+    "coveralls": "^2.11.16",
     "jasmine-core": "^2.5.2",
     "karma": "^1.5.0",
+    "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "phantomjs": "^2.1.7"
@@ -15,7 +17,8 @@
     "url": "git://github.com/rivukhoda/dentaku.git"
   },
   "scripts": {
-    "test": "karma start my.conf.js --single-run --browsers PhantomJS"
+    "test": "karma start my.conf.js --single-run --browsers PhantomJS",
+    "coveralls": "cat ./coverage/lcov.info  | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "license": "MIT"
 }
