@@ -10,7 +10,7 @@ Calculate simple arithmetic expressions on mobile or desktop. All you need is a 
 
 ## Usage
 
-You can try the fully working live app at [http://rivukhoda.me/dentaku](http://rivukhoda.me/dentaku)
+You can try the fully working live app at [https://rivukhoda.github.io/dentaku/](http://rivukhoda.me/dentaku)
 
 ## Features
 
